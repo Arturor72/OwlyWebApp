@@ -1,0 +1,66 @@
+$turquesa: #42A5F5;
+$turquesa-hover: #4287F6;
+$azul-oscuro: #35384C;
+
+body{
+	background-color: $azul-oscuro;
+
+	.box{
+		width: 450px;
+		height: 200px;
+		margin: auto;
+		margin-top: 150px;
+		color: #fff;
+
+		.box-white{
+			background-color: #fff;
+			color: #000;
+			padding: 25px 15px;
+			
+			.form-control{
+				border-radius: 0px;
+				border-top: none;
+				border-left: none;
+				border-right: none;
+				box-shadow:none;
+			}
+
+			.input-group-addon{
+				border: none;
+				background-color: transparent;
+			}
+
+			.btn-default{
+				background-color: $turquesa;
+				color: #fff;
+			}
+
+			.btn-default:hover{
+				background-color: $turquesa-hover;
+				color: #fff;
+			}
+		}
+	}
+}
+
+.mg-2{
+	margin:2px;
+}
+
+a{
+	text-decoration: none;
+	color:#fff;
+}
+
+a:hover{
+	color:#fff;
+}
+
+.vertical-centered-text {
+  -ms-display: flex;
+  display: flex;
+  /* alineacion vertical */
+  align-items: center;
+   /* alineacion horizontal */
+  justify-content: center;
+}
