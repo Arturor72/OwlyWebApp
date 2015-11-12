@@ -34,7 +34,7 @@ public class OwlyJpaConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
 		LocalContainerEntityManagerFactoryBean ent=new LocalContainerEntityManagerFactoryBean();
 		ent.setDataSource(dataSource());
-		ent.setPackagesToScan(new String[] { "com.owly.persitence.model" });
+		ent.setPackagesToScan(new String[] { "com.owly.persistence.model" });
 		JpaVendorAdapter vendor=new HibernateJpaVendorAdapter();
 		ent.setJpaVendorAdapter(vendor);
 		ent.setJpaProperties(additionalProperties());

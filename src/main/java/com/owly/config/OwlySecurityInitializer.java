@@ -4,8 +4,8 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 
 public class OwlySecurityInitializer extends AbstractSecurityWebApplicationInitializer{
 	
-	public OwlySecurityInitializer() {
-		super(OwlySecurityConfig.class);
-	}
+public OwlySecurityInitializer() {
+   super(OwlySecurityConfig.class);
+}
 
 }

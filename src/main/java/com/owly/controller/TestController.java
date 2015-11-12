@@ -8,23 +8,56 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.owly.persistence.dao.AlumnoDao;
+import com.owly.persistence.dao.EspecialidadDao;
 import com.owly.persistence.dao.TemaDao;
+import com.owly.persistence.dao.UniversidadDao;
+import com.owly.persistence.model.Alumno;
+import com.owly.persistence.model.Especialidad;
+import com.owly.persistence.model.Universidad;
 import com.owly.persitence.model.Tema;
 
 @Controller
 public class TestController {
-    @Autowired
-	TemaDao temaDao;
+   
+	@Autowired
+	UniversidadDao universidadDao;
+	
+	@Autowired
+	EspecialidadDao especialidadDao;
+	
+	@Autowired
+	AlumnoDao alumnoDao;
     
-	@RequestMapping(method=RequestMethod.GET, value="/login")
+	@RequestMapping(method=RequestMethod.GET, value="/test")
 	public String getLogin(){
-		List<Tema> temas=temaDao.getTemas();
-		for (Tema tema : temas) {
-			System.out.println(tema.getTemDes());
+		List<Universidad> universidadList=universidadDao.getUniversidades();
+		for (Universidad universidad : universidadList) {
+			System.out.println(universidad.getUniDes());
+			for (Especialidad especialidad : universidad.getEspecialidades()) {
+				System.out.println(especialidad.getEspDen());
+			}
 		}
-				
-		return "login";	
+		return "home";	
+	}
+	@RequestMapping(method=RequestMethod.GET, value="/esp")
+	public String getEsp(){
+		List<Especialidad> especialidades=especialidadDao.getEspecialidades();
+		for (Especialidad especialidad : especialidades) {
+			System.out.println(especialidad.getEspDen());
+			System.out.println(especialidad.getUniversidad().getUniDes());
+		}
+		return "home";	
+	}
+
+	@RequestMapping(method=RequestMethod.GET, value="/al")
+	public String getAl(){
+		List<Alumno> alumnos=alumnoDao.getAlumnos();
+		for (Alumno alumno : alumnos) {
+			System.out.println(alumno.getAluNom());
+			System.out.println(alumno.getEspecialidad().getEspDen());
+		}
+		return "home";	
 	}
 	
-
 }

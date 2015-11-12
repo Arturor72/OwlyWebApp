@@ -8,7 +8,7 @@ public class OwlyMvcInitializer extends AbstractAnnotationConfigDispatcherServle
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return new Class[]{OwlyJpaConfig.class};
+		return null;
 	}
 
 	@Override
