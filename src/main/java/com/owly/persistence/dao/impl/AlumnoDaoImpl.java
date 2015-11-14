@@ -51,9 +51,12 @@ public class AlumnoDaoImpl implements AlumnoDao {
 	}
 
 	@Override
+	@Transactional(readOnly=true)
+	@SuppressWarnings("unchecked")
 	public List<Alumno> getAlumnosbyEspecialidad(Integer idEsp) {
-		// TODO Auto-generated method stub
-		return null;
+		String query="Select a from Alumno a where  a.especialidad.espId="+idEsp;
+		Query prepareQuery=em.createQuery(query);
+		return prepareQuery.getResultList();
 	}
 
 	@Override

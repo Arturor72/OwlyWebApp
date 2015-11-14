@@ -1,5 +1,7 @@
 package com.owly.persistence.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -35,7 +37,10 @@ public class Alumno {
 	@ManyToOne
 	@JoinColumn(name = "espId")
 	private Especialidad especialidad;
-
+	
+	@OneToMany(mappedBy="alumno")
+	private List<Ejercicio> ejercicios;
+	
 	public Integer getAluId() {
 		return aluId;
 	}
@@ -124,4 +129,13 @@ public class Alumno {
 		this.especialidad = especialidad;
 	}
 
+	public List<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+
+	public void setEjercicios(List<Ejercicio> ejercicios) {
+		this.ejercicios = ejercicios;
+	}
+
+	
 }

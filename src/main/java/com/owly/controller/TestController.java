@@ -52,7 +52,7 @@ public class TestController {
 
 	@RequestMapping(method=RequestMethod.GET, value="/al")
 	public String getAl(){
-		List<Alumno> alumnos=alumnoDao.getAlumnos();
+		List<Alumno> alumnos=alumnoDao.getAlumnosbyEspecialidad(2);
 		for (Alumno alumno : alumnos) {
 			System.out.println(alumno.getAluNom());
 			System.out.println(alumno.getEspecialidad().getEspDen());

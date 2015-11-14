@@ -1,10 +1,13 @@
 package com.owly.persistence.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,6 +28,9 @@ public class Especialidad {
 	@ManyToOne
 	@JoinColumn(name="uniId")
 	private Universidad universidad;
+	
+	@OneToMany(mappedBy="especialidad")
+	private List<Alumno> alumnos;
 	
 	public Integer getEspId() {
 		return espId;
@@ -49,6 +55,12 @@ public class Especialidad {
 	}
 	public void setUniversidad(Universidad universidad) {
 		this.universidad = universidad;
+	}
+	public List<Alumno> getAlumnos() {
+		return alumnos;
+	}
+	public void setAlumnos(List<Alumno> alumnos) {
+		this.alumnos = alumnos;
 	}
 	
 	

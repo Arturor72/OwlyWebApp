@@ -1,8 +1,11 @@
 package com.owly.persistence.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +19,9 @@ public class Nivel {
 	private String nivCod;
 	@Column(name="nivDes")
 	private String nivDes;
+	
+	@OneToMany(mappedBy="nivel")
+	private List<Tutor> tutores;
 	
 	public Integer getNivId() {
 		return nivId;
@@ -34,6 +40,12 @@ public class Nivel {
 	}
 	public void setNivDes(String nivDes) {
 		this.nivDes = nivDes;
+	}
+	public List<Tutor> getTutores() {
+		return tutores;
+	}
+	public void setTutores(List<Tutor> tutores) {
+		this.tutores = tutores;
 	}
 	
 	
