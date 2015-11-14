@@ -13,7 +13,7 @@ import com.owly.constants.OwlyConstants;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages={"com.owly.config", "com.owly.controller"})
+@ComponentScan(basePackages={"com.owly.config", "com.owly.controller", "com.owly.service"})
 public class OwlyMvcConfig extends WebMvcConfigurerAdapter{
 	
 	@Bean

@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.owly.persistence.dao.AlumnoDao;
 import com.owly.persistence.model.Alumno;
 
-@Repository
+@Repository(value="alumnoDao")
 public class AlumnoDaoImpl implements AlumnoDao {
 
 	EntityManager em=null;
@@ -21,6 +21,22 @@ public class AlumnoDaoImpl implements AlumnoDao {
 	public void setEntityManager(EntityManager em){
 		this.em=em;
 	}
+	
+	
+
+	@Override
+	@Transactional(readOnly=true)
+	@SuppressWarnings("unchecked")	
+	public List<Alumno> getAlumnoByUsername(String username) {
+		String query="Select a from Alumno a where a.aluUsu = :username";
+//		String query="Select a from Alumno a where a.especialidad.espId="+idEsp;
+		
+		Query prepareQuery=em.createQuery(query);
+		prepareQuery.setParameter("username", username);
+		return prepareQuery.getResultList();
+	}
+
+
 
 	@Override
 	public Alumno getAlumnobyId(Integer id) {
@@ -59,6 +75,7 @@ public class AlumnoDaoImpl implements AlumnoDao {
 		return prepareQuery.getResultList();
 	}
 
+	
 	@Override
 	public String insertAlumno(Alumno alumno) {
 		// TODO Auto-generated method stub

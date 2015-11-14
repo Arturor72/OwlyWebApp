@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.owly.persistence.dao.TemaDao;
-import com.owly.persitence.model.Tema;
+import com.owly.persistence.model.Tema;
 
 @Repository
 public class TemaDaoImpl implements TemaDao{

@@ -3,19 +3,16 @@ package com.owly.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.owly.persistence.dao.AlumnoDao;
 import com.owly.persistence.dao.EspecialidadDao;
-import com.owly.persistence.dao.TemaDao;
 import com.owly.persistence.dao.UniversidadDao;
 import com.owly.persistence.model.Alumno;
 import com.owly.persistence.model.Especialidad;
 import com.owly.persistence.model.Universidad;
-import com.owly.persitence.model.Tema;
 
 @Controller
 public class TestController {
@@ -52,7 +49,7 @@ public class TestController {
 
 	@RequestMapping(method=RequestMethod.GET, value="/al")
 	public String getAl(){
-		List<Alumno> alumnos=alumnoDao.getAlumnosbyEspecialidad(2);
+		List<Alumno> alumnos=alumnoDao.getAlumnoByUsername("arturo");
 		for (Alumno alumno : alumnos) {
 			System.out.println(alumno.getAluNom());
 			System.out.println(alumno.getEspecialidad().getEspDen());

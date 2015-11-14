@@ -2,7 +2,7 @@ package com.owly.persistence.dao;
 
 import java.util.List;
 
-import com.owly.persitence.model.Tema;
+import com.owly.persistence.model.Tema;
 
 public interface TemaDao {
 

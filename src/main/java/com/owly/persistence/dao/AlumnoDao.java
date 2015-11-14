@@ -13,6 +13,8 @@ public interface AlumnoDao {
 	public List<Alumno> getAlumnosbyEspecialidad(Integer idEsp);
 	
 	public String insertAlumno(Alumno alumno);
+	
+	public List<Alumno> getAlumnoByUsername(String username);
 //	public String updateAlumno(Alumno alumno);
 //	public String deleteAlumnos(List<Integer>ids);
 }

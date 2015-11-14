@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.owly.persistence.dao.UniversidadDao;
 import com.owly.persistence.model.Universidad;
-import com.owly.persitence.model.Tema;
 
 @Repository
 public class UniversidadDaoImpl implements UniversidadDao{
