@@ -1,0 +1,23 @@
+.hero-img {
+  padding: 3% 0%;
+  font-family: 'Lato', sans-serif; }
+
+.logo {
+  width: 25%; }
+
+p {
+  font-family: 'Merriweather', serif; }
+
+.select-teacher {
+  padding: 3% 0%; }
+
+/*Formulario postula*/
+.form-postula {
+  padding: 6% 25%; }
+  .form-postula h2 {
+    color: #459BD0; }
+
+.pr-2 {
+  padding-right: 2%; }
+
+/*# sourceMappingURL=inicio.css.map */

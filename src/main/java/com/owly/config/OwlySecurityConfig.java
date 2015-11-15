@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,5 +32,16 @@ public class OwlySecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(new OwlyUserService(alumnoDao));
 		
 	}
-
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.formLogin().loginPage("/login").loginProcessingUrl("/j_spring_security_check").and()
+	    .logout().logoutSuccessUrl("/login?logout").and().authorizeRequests()
+//		.antMatchers("/ente").authenticated()
+		.antMatchers("/alumno/**").hasAnyRole("ALUMNO")
+		.antMatchers("/tutor/**").hasAnyRole("TUTOR")
+		.anyRequest().permitAll();
+	}
+	
+	
 }

@@ -1,0 +1,35 @@
+$turquesa: #459BD0;
+$turquesa-hover: #4287F6;
+$azul-oscuro: #2D3E50;
+
+.hero-img{
+	padding: 3% 0%;
+	font-family: 'Lato', sans-serif;
+}
+
+.logo{
+	width: 25%;
+}
+
+p{
+	font-family: 'Merriweather', serif;
+}
+
+.select-teacher{
+	padding: 3% 0%;
+}
+
+/*Formulario postula*/
+
+.form-postula{
+	padding: 6% 25%;
+
+	h2{
+		color: $turquesa;
+	}
+}
+
+.pr-2{
+	padding-right: 2%;
+}
+

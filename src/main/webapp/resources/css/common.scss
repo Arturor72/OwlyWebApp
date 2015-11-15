@@ -1,0 +1,155 @@
+$turquesa: #459BD0;
+$turquesa-hover: #4287F6;
+$azul-oscuro: #2D3E50;
+$rosado: #FA75A6;
+$rosado-hover: #FA5591;
+
+.txt-turquesa{
+	color:$turquesa;
+}
+
+.label-turquesa{
+	background-color: $turquesa;
+}
+.label-turquesa:hover{
+	background-color: $turquesa-hover;
+}
+.navbar-default{
+	background-color: $azul-oscuro;
+	border-bottom: 3px solid #459BD0;
+	padding: 1.2%;
+
+	.navbar-brand img{
+		width: 15%;
+		margin-top: -15px;
+	}
+
+	.navbar-brand, .navbar-nav>li>a{
+		color:#fff;
+	}
+
+	.navbar-brand:hover, .navbar-nav>li>a:hover{
+		color: $turquesa;
+	}
+
+	.navbar-nav>li>a:focus{
+		color: $turquesa;
+	}
+	
+	.navbar-nav>.open>a, .navbar-nav>.open>a:focus,  .navbar-nav>.open>a:hover{
+		color: $turquesa;
+		background-color: transparent;
+	}
+
+}
+	
+.dropdown-menu{
+	background-color: $azul-oscuro;
+	
+	&>li>a{
+		color: #fff;
+		background-color: $azul-oscuro;
+	}
+
+	&>li>a:hover{
+		background-color: transparent;
+		color: $turquesa;
+	}
+
+}
+
+
+#sidebar-wrapper{
+	background-color: $azul-oscuro;
+
+	.sidebar-nav {
+		padding-top: 21%;
+
+		li {
+		text-indent: 9px;
+		
+			a {
+				color: #fff;
+			}
+
+			a:hover {
+				color: $turquesa;
+				background-color: transparent;
+			}	
+		}
+	}
+}
+
+.navbar-default {
+	color: $azul-oscuro;
+}
+
+.contenido{
+	padding: 3%;
+}
+
+.txt-rosado{
+	color:$rosado;
+}
+
+.txt-turquesa{
+	color: $turquesa;
+}
+
+.pb-3{
+	padding-bottom: 3%;
+}
+
+.mb-2{
+	margin-bottom: 2%;
+}
+
+.comment {
+    padding: 3% 3%;
+    background-color: #DEE0E3;
+    color: #3b4657;
+    margin-bottom: 2%;
+}
+.btn-rosa, .btn-rosa:hover, .btn-turquesa, .btn-turquesa:hover {
+	color: #fff;
+	border-color: transparent;
+	font-size: 18px;
+}
+
+.btn-rosa {
+	background-color: $rosado;	
+}
+
+.btn-rosa:hover {
+	background-color: $rosado-hover;	
+}
+
+.btn-turquesa {
+	background-color: $turquesa;	
+}
+
+.btn-turquesa:hover {
+	background-color: $turquesa-hover;	
+}
+
+h2{
+	margin-bottom: 20px;
+
+}
+.box{
+	border: 1px solid #D8D8D8;
+	border-radius: 10px;
+	box-shadow: 3px 3px 2px 0px #6E6E6E;
+	padding: 3% 6%;
+	margin: 2% 0%;
+
+	h3{
+		margin: 0%;
+	}
+
+	i{
+		font-size: 18px;
+		padding: 0% 0.5%;
+		color: $rosado;
+	}
+}

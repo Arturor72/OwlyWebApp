@@ -28,7 +28,7 @@ public class OwlyUserService implements UserDetailsService{
 		List<Alumno> alumno=alumnoDao.getAlumnoByUsername(username);
 		if(!alumno.isEmpty() && alumno.size()>0){
 			List<GrantedAuthority> authorities=new ArrayList<GrantedAuthority>();
-			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+			authorities.add(new SimpleGrantedAuthority("ROLE_ALUMNO"));
 			System.out.println(alumno.get(0).getAluNom()+" "+alumno.get(0).getAluPas());
 			return new User(alumno.get(0).getAluUsu(), alumno.get(0).getAluPas(), authorities);
 		}

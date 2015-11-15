@@ -1,0 +1,105 @@
+.txt-turquesa {
+  color: #459BD0; }
+
+.label-turquesa {
+  background-color: #459BD0; }
+
+.label-turquesa:hover {
+  background-color: #4287F6; }
+
+.navbar-default {
+  background-color: #2D3E50;
+  border-bottom: 3px solid #459BD0;
+  padding: 1.2%; }
+  .navbar-default .navbar-brand img {
+    width: 15%;
+    margin-top: -15px; }
+  .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+    color: #fff; }
+  .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
+    color: #459BD0; }
+  .navbar-default .navbar-nav > li > a:focus {
+    color: #459BD0; }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    color: #459BD0;
+    background-color: transparent; }
+
+.dropdown-menu {
+  background-color: #2D3E50; }
+  .dropdown-menu > li > a {
+    color: #fff;
+    background-color: #2D3E50; }
+  .dropdown-menu > li > a:hover {
+    background-color: transparent;
+    color: #459BD0; }
+
+#sidebar-wrapper {
+  background-color: #2D3E50; }
+  #sidebar-wrapper .sidebar-nav {
+    padding-top: 21%; }
+    #sidebar-wrapper .sidebar-nav li {
+      text-indent: 9px; }
+      #sidebar-wrapper .sidebar-nav li a {
+        color: #fff; }
+      #sidebar-wrapper .sidebar-nav li a:hover {
+        color: #459BD0;
+        background-color: transparent; }
+
+.navbar-default {
+  color: #2D3E50; }
+
+.contenido {
+  padding: 3%; }
+
+.txt-rosado {
+  color: #FA75A6; }
+
+.txt-turquesa {
+  color: #459BD0; }
+
+.pb-3 {
+  padding-bottom: 3%; }
+
+.mb-2 {
+  margin-bottom: 2%; }
+
+.comment {
+  padding: 3% 3%;
+  background-color: #DEE0E3;
+  color: #3b4657;
+  margin-bottom: 2%; }
+
+.btn-rosa, .btn-rosa:hover, .btn-turquesa, .btn-turquesa:hover {
+  color: #fff;
+  border-color: transparent;
+  font-size: 18px; }
+
+.btn-rosa {
+  background-color: #FA75A6; }
+
+.btn-rosa:hover {
+  background-color: #FA5591; }
+
+.btn-turquesa {
+  background-color: #459BD0; }
+
+.btn-turquesa:hover {
+  background-color: #4287F6; }
+
+h2 {
+  margin-bottom: 20px; }
+
+.box {
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  box-shadow: 3px 3px 2px 0px #6E6E6E;
+  padding: 3% 6%;
+  margin: 2% 0%; }
+  .box h3 {
+    margin: 0%; }
+  .box i {
+    font-size: 18px;
+    padding: 0% 0.5%;
+    color: #FA75A6; }
+
+/*# sourceMappingURL=common.css.map */

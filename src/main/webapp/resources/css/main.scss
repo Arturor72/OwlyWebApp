@@ -1,6 +1,6 @@
-$turquesa: #42A5F5;
+$turquesa: #459BD0;
 $turquesa-hover: #4287F6;
-$azul-oscuro: #35384C;
+$azul-oscuro: #2D3E50;
 
 body{
 	background-color: $azul-oscuro;
@@ -56,11 +56,3 @@ a:hover{
 	color:#fff;
 }
 
-.vertical-centered-text {
-  -ms-display: flex;
-  display: flex;
-  /* alineacion vertical */
-  align-items: center;
-   /* alineacion horizontal */
-  justify-content: center;
-}

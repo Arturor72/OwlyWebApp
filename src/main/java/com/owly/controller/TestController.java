@@ -26,6 +26,12 @@ public class TestController {
 	@Autowired
 	AlumnoDao alumnoDao;
     
+	@RequestMapping(method=RequestMethod.GET, value="/")
+	public String home(){
+		return "Index";
+	}
+	
+	
 	@RequestMapping(method=RequestMethod.GET, value="/test")
 	public String getLogin(){
 		List<Universidad> universidadList=universidadDao.getUniversidades();

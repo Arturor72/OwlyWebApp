@@ -1,5 +1,5 @@
 body {
-  background-color: #35384C; }
+  background-color: #2D3E50; }
   body .box {
     width: 450px;
     height: 200px;
@@ -20,7 +20,7 @@ body {
         border: none;
         background-color: transparent; }
       body .box .box-white .btn-default {
-        background-color: #42A5F5;
+        background-color: #459BD0;
         color: #fff; }
       body .box .box-white .btn-default:hover {
         background-color: #4287F6;
@@ -35,13 +35,5 @@ a {
 
 a:hover {
   color: #fff; }
-
-.vertical-centered-text {
-  -ms-display: flex;
-  display: flex;
-  /* alineacion vertical */
-  align-items: center;
-  /* alineacion horizontal */
-  justify-content: center; }
 
 /*# sourceMappingURL=main.css.map */
