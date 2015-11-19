@@ -20,6 +20,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.owly.constants.OwlyConstants;
+
 
 @Configuration
 @EnableTransactionManagement
@@ -44,10 +46,10 @@ public class OwlyJpaConfig {
 	@Bean
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource=new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-		dataSource.setUrl(env.getProperty("jdbc.url"));
-		dataSource.setUsername(env.getProperty("jdbc.username"));
-		dataSource.setPassword(env.getProperty("jdbc.password"));
+		dataSource.setDriverClassName(env.getProperty(OwlyConstants.DATABASE_DRIVER_PROPERTIE));
+		dataSource.setUrl(env.getProperty(OwlyConstants.DATABASE_URL_PROPERTIE));
+		dataSource.setUsername(env.getProperty(OwlyConstants.DATABASE_USER_PROPERTIE));
+		dataSource.setPassword(env.getProperty(OwlyConstants.DATABASE_PASSWORD_PROPERTIE));
 		return dataSource;
 	}
 	
@@ -66,8 +68,9 @@ public class OwlyJpaConfig {
 	 
 	   Properties additionalProperties() {
 	      Properties properties = new Properties();
-	      properties.setProperty("hibernate.hbm2ddl.auto", "none");
-	      properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+	      properties.setProperty(OwlyConstants.HIBERNATE_AUTO_PROPERTIE, env.getProperty(OwlyConstants.HIBERNATE_AUTO_PROPERTIE));
+	      properties.setProperty(OwlyConstants.HIBERNATE_DIALECT_PROPERTIE, env.getProperty(OwlyConstants.HIBERNATE_DIALECT_PROPERTIE));
+	      properties.setProperty(OwlyConstants.HIBERNATE_SHOW_SQL_PROPERTIE, env.getProperty(OwlyConstants.HIBERNATE_SHOW_SQL_PROPERTIE));
 	      return properties;
 	   }
 

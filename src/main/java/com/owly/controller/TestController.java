@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.owly.persistence.dao.AlumnoDao;
 import com.owly.persistence.dao.EspecialidadDao;
+import com.owly.persistence.dao.TutorDao;
 import com.owly.persistence.dao.UniversidadDao;
 import com.owly.persistence.model.Alumno;
 import com.owly.persistence.model.Especialidad;
+import com.owly.persistence.model.Tutor;
 import com.owly.persistence.model.Universidad;
 
 @Controller
@@ -26,6 +28,9 @@ public class TestController {
 	@Autowired
 	AlumnoDao alumnoDao;
     
+	@Autowired
+	TutorDao  tutorDao;
+	
 	@RequestMapping(method=RequestMethod.GET, value="/")
 	public String home(){
 		return "Index";
@@ -61,6 +66,14 @@ public class TestController {
 			System.out.println(alumno.getEspecialidad().getEspDen());
 		}
 		return "home";	
+	}
+	@RequestMapping(method=RequestMethod.GET, value="/tu")
+	public String getTu(){
+		List<Tutor> tutores=tutorDao.getTutorByUser("dabaco");
+		for (Tutor tutor : tutores) {
+			System.out.println(tutor.getTutNom());	
+		}
+		return "login";	
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.owly.persistence.dao.AlumnoDao;
 import com.owly.persistence.model.Alumno;
+import com.owly.persistence.model.Tutor;
 
 @Repository(value="alumnoDao")
 public class AlumnoDaoImpl implements AlumnoDao {
@@ -25,15 +26,19 @@ public class AlumnoDaoImpl implements AlumnoDao {
 	
 
 	@Override
-	@Transactional(readOnly=true)
-	@SuppressWarnings("unchecked")	
+
 	public List<Alumno> getAlumnoByUsername(String username) {
-		String query="Select a from Alumno a where a.aluUsu = :username";
+		String query="Select a from Alumno a where a.aluUsu= :username";
 //		String query="Select a from Alumno a where a.especialidad.espId="+idEsp;
 		
 		Query prepareQuery=em.createQuery(query);
 		prepareQuery.setParameter("username", username);
 		return prepareQuery.getResultList();
+		
+//		String query="Select t from Tutor t where t.tutUsu= :username";
+//		Query prepareQuery=em.createQuery(query);
+//		prepareQuery.setParameter("username", username);
+//		return (Tutor)prepareQuery.getSingleResult();
 	}
 
 
