@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TransactionRequiredException;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,16 +30,10 @@ public class AlumnoDaoImpl implements AlumnoDao {
 
 	public List<Alumno> getAlumnoByUsername(String username) {
 		String query="Select a from Alumno a where a.aluUsu= :username";
-//		String query="Select a from Alumno a where a.especialidad.espId="+idEsp;
-		
 		Query prepareQuery=em.createQuery(query);
 		prepareQuery.setParameter("username", username);
 		return prepareQuery.getResultList();
-		
-//		String query="Select t from Tutor t where t.tutUsu= :username";
-//		Query prepareQuery=em.createQuery(query);
-//		prepareQuery.setParameter("username", username);
-//		return (Tutor)prepareQuery.getSingleResult();
+
 	}
 
 
@@ -82,9 +77,9 @@ public class AlumnoDaoImpl implements AlumnoDao {
 
 	
 	@Override
-	public String insertAlumno(Alumno alumno) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public void insertAlumno(Alumno alumno) throws Exception {
+		em.persist(alumno);
 	}
 	
 	

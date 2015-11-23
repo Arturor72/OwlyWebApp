@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 public class Alumno {
 	@Id
 	@Column(name = "aluId")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer aluId;
 	@Column(name = "aluCod")
 	private String aluCod;
@@ -34,6 +37,7 @@ public class Alumno {
 	private String aluPas;
 	@Column(name = "aluEma")
 	private String aluEma;
+	
 	@ManyToOne
 	@JoinColumn(name = "espId")
 	private Especialidad especialidad;

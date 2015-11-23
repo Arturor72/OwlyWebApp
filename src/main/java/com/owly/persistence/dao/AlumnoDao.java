@@ -12,7 +12,7 @@ public interface AlumnoDao {
 	public List<Alumno> getAlumnos();
 	public List<Alumno> getAlumnosbyEspecialidad(Integer idEsp);
 	
-	public String insertAlumno(Alumno alumno);
+	public void insertAlumno(Alumno alumno) throws Exception;
 	
 	public List<Alumno> getAlumnoByUsername(String username);
 //	public String updateAlumno(Alumno alumno);

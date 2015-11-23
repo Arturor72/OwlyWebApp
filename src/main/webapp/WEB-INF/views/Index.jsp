@@ -39,10 +39,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="login.html">Ingresar</a>
+                <a href="<c:url value='login'/>">Ingresar</a>
             </li>
             <li>
-                <a href="registro.html">Registrarse</a>
+                <a href="<c:url value='registro'/>">Registrarse</a>
             </li>            
           </ul>
         </div>

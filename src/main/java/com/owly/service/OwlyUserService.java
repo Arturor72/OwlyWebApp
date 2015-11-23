@@ -37,25 +37,34 @@ public class OwlyUserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 		List<Alumno> alumnos = alumnoDao.getAlumnoByUsername(username);
-		if (!alumnos.isEmpty() || alumnos.size()> 0) {
-			Alumno alumno=alumnos.get(0);
-			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-			authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_ALUMNO));
-			System.out.println(alumno.getAluNom() + " " + alumno.getAluPas());
-			return new User(alumno.getAluUsu(), alumno.getAluPas(), authorities);
-		} else {
-			List<Tutor>  tutores = tutorDao.getTutorByUser(username);
-			if (!tutores.isEmpty() || tutores.size()> 0) {
-				Tutor tutor=tutores.get(0);
-				List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-				authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_TUTOR));
-				System.out
-						.println(tutor.getTutNom() + " " + tutor.getTutPas());
-				return new User(tutor.getTutUsu(), tutor.getTutPas(),
-						authorities);
-			}
+		List<Tutor>  tutores = tutorDao.getTutorByUser(username);
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		
+		User usuario=null;
+		if (!alumnos.isEmpty() && alumnos.size()> 0) {
+			usuario=getUserAlumno(authorities, alumnos); 
+		} else if (!tutores.isEmpty() && tutores.size()> 0) {
+			usuario=getUserTutor(authorities, tutores);
 		}
-		throw new UsernameNotFoundException(username + "not found");
+		else{
+			throw new UsernameNotFoundException(username + "not found");
+		}
+		return usuario;
+	}
+	
+	private User getUserAlumno(List<GrantedAuthority> authorities, List<Alumno> alumnos ){
+		Alumno alumno=alumnos.get(0);
+		User usuario=new User(alumno.getAluUsu(), alumno.getAluPas(), authorities); 
+		authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_ALUMNO));
+		System.out.println(alumno.getAluNom() + " " + alumno.getAluPas());
+		return usuario;
+	}
+	private User getUserTutor(List<GrantedAuthority> authorities, List<Tutor> tutores ){
+		Tutor tutor=tutores.get(0);
+		authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_TUTOR));
+		User usuario=new User(tutor.getTutUsu(), tutor.getTutPas(), authorities);
+		System.out.println(tutor.getTutNom() + " " + tutor.getTutPas());
+		return usuario;
 	}
 
 }

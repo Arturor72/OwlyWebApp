@@ -30,4 +30,14 @@ public class EspecialidadDaoImpl implements EspecialidadDao{
 			Query prepareQuery= em.createQuery(query);
 		return prepareQuery.getResultList();
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly=true)
+	public List<Especialidad> getEspecialidadById(Integer idEsp) {
+		String query="Select e from Especialidad e where e.espId=:idEsp";
+		Query prepareQuery=em.createQuery(query);
+		prepareQuery.setParameter("idEsp", idEsp);
+		return prepareQuery.getResultList();
+	}
 }
