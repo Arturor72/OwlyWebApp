@@ -7,4 +7,6 @@ import com.owly.persistence.model.Tema;
 public interface TemaDao {
 
 	public List<Tema> getTemas();
+	
+	public List<Tema> getTemasByCursoId(Integer curId);
 }

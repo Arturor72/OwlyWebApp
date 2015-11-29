@@ -8,5 +8,7 @@ public interface EspecialidadDao {
 
 	public List <Especialidad> getEspecialidades();
 	
-	public List<Especialidad> getEspecialidadById( Integer idEsp);
+	public List<Especialidad> getEspecialidadById(Integer idEsp);
+	
+	
 }

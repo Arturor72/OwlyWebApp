@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name="Especialidad")
@@ -30,6 +32,7 @@ public class Especialidad {
 	private Universidad universidad;
 	
 	@OneToMany(mappedBy="especialidad")
+	@JsonManagedReference
 	private List<Alumno> alumnos;
 	
 	public Integer getEspId() {

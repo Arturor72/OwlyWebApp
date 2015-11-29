@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
+import org.hibernate.annotations.Synchronize;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,4 +31,14 @@ public class TemaDaoImpl implements TemaDao{
 		return em.createQuery(query).getResultList();
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly=true)
+	public List<Tema> getTemasByCursoId(Integer curId) {
+		String query="Select t from Tema t where t.curId=:curId";
+		Query prepareQuery=em.createQuery(query);
+		prepareQuery.setParameter("curId", curId);
+		return prepareQuery.getResultList();
+	}
+	
 }

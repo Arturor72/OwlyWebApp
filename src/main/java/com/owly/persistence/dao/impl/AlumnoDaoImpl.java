@@ -27,7 +27,8 @@ public class AlumnoDaoImpl implements AlumnoDao {
 	
 
 	@Override
-
+	@Transactional(readOnly=true)
+	@SuppressWarnings("unchecked")
 	public List<Alumno> getAlumnoByUsername(String username) {
 		String query="Select a from Alumno a where a.aluUsu= :username";
 		Query prepareQuery=em.createQuery(query);

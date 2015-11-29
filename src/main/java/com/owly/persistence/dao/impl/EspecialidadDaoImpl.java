@@ -40,4 +40,6 @@ public class EspecialidadDaoImpl implements EspecialidadDao{
 		prepareQuery.setParameter("idEsp", idEsp);
 		return prepareQuery.getResultList();
 	}
+	
+
 }

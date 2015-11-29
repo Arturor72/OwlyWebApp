@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/common.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/inicio.css'/>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -58,7 +55,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong><security:authentication property="principal.username" /></strong>
+                                        <h5 class="media-heading"><strong>John</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -99,7 +96,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <security:authentication property="principal.username" /> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -162,7 +159,7 @@
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Problemas <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">
                         <li>
-                            <a href="nejercicio">Nuevo</a>
+                            <a href="e-nuevo-problema.html">Nuevo</a>
                         </li>
                         <li>
                             <a href="e-resolucion.html">Solución</a>
@@ -175,91 +172,74 @@
             </ul>
         </div>
         <section class="contenido">
-            <h3>Últimos ejercicios resueltos</h3>
-            <table class="table table-bordered">
-              <th>Categoría</th>
-              <th>Tema</th>
-              <th>Creditos</th>
-              <th></th>
-              <th></th>
-              <tr>
-                <td><span class="label label-warning">A. Mat I</span></td>
-                <td><label for="">Limites y derivadas</label></td>
-                <td>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                </td>
-                <td><a href=""  data-toggle="modal" data-target="#myModal">Ver problema</a></td>
-                <td><a href="">Comprar</a></td>
-              </tr>
-              <tr>
-                <td><span class="label label-warning">A. Mat I</span></td>
-                <td><label for="">Limites y derivadas</label></td>
-                <td>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                </td>
-                <td><a href="">Ver problema</a></td>
-                <td><a href="">Comprar</a></td>
-              </tr>
-              <tr>
-                <td><span class="label label-warning">A. Mat I</span></td>
-                <td><label for="">Limites y derivadas</label></td>
-                <td>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                    
-                </td>
-                <td><a href="">Ver problema</a></td>
-                <td><a href="">Comprar</a></td>
-              </tr>
-              <tr>
-                <td><span class="label label-warning">A. Mat I</span></td>
-                <td><label for="">Limites y derivadas</label></td>
-                <td>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>            
-
-                </td>
-                <td><a href="">Ver problema</a></td>
-                <td><a href="">Comprar</a></td>
-              </tr>
-              <tr>
-                <td><span class="label label-warning">A. Mat I</span></td>
-                <td><label for="">Limites y derivadas</label></td>
-                <td>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                    <i class="fa fa-circle"></i>
-                </td>
-                <td><a href="">Ver problema</a></td>
-                <td><a href="">Comprar</a></td>
-              </tr>
-            </table>
-
-            <div class="modal fade" id="myModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Limites y derivadas</h4>
+            <h3>Nuevo problema</h3>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Categoría</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="cursosEjercicio">
+                  <c:forEach items="${cursos}" var="curso">
+				      		<option value="<c:out value="${curso.curId}"></c:out> "><c:out value="${curso.curDes}"></c:out> </option>
+				      	</c:forEach>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Tema</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Problema</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Requerimientos</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">¿Deseas elegir un profesor específico?</label>
+                <div class="col-sm-10">
+                  <select class="form-control">
+                    <option>Si</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="select-teacher form-group">
+                <div class="row text-center">
+                  <div class="col-sm-6">
+                    <img src="img/estudiante-universidad.jpg" alt="">
+                    <h4>José Rojas</h4>
+                    <h5>Estudiante de Ing. Industrial UNI</h5>
+                    <label class="radio-inline">
+                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    </label>
                   </div>
-                  <div class="modal-body">
-                    <img src="img/problema.jpg" alt="">
+                  <div class="col-sm-6">
+                    <img src="img/estudiante-universidad.jpg" alt="">
+                    <h4>José Rojas</h4>
+                    <h5>Estudiante de Ing. Industrial UNI</h5>
+                    <label class="radio-inline">
+                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    </label>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Comprar</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-7">
+                  <button type="submit" class="btn btn-default">Enviar</button>
+                </div>
+              </div>
+            </form>
         </section>
+
     </div>
 
 
@@ -272,13 +252,6 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-
-    </script>
-    <script>
-
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').focus()
-    })
     </script>
 
 </body>

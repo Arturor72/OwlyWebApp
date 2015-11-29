@@ -42,26 +42,28 @@ public class OwlyUserService implements UserDetailsService {
 		
 		User usuario=null;
 		if (!alumnos.isEmpty() && alumnos.size()> 0) {
-			usuario=getUserAlumno(authorities, alumnos); 
+			usuario=getUserAlumno(authorities, alumnos);
 		} else if (!tutores.isEmpty() && tutores.size()> 0) {
 			usuario=getUserTutor(authorities, tutores);
 		}
 		else{
 			throw new UsernameNotFoundException(username + "not found");
 		}
+		
 		return usuario;
 	}
 	
 	private User getUserAlumno(List<GrantedAuthority> authorities, List<Alumno> alumnos ){
 		Alumno alumno=alumnos.get(0);
-		User usuario=new User(alumno.getAluUsu(), alumno.getAluPas(), authorities); 
 		authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_ALUMNO));
+		User usuario=new User(alumno.getAluUsu(), alumno.getAluPas(), authorities); 
+		
 		System.out.println(alumno.getAluNom() + " " + alumno.getAluPas());
 		return usuario;
 	}
 	private User getUserTutor(List<GrantedAuthority> authorities, List<Tutor> tutores ){
 		Tutor tutor=tutores.get(0);
-		authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_TUTOR));
+		authorities.add(new SimpleGrantedAuthority(OwlyConstants.ROLE_TUTOR));		
 		User usuario=new User(tutor.getTutUsu(), tutor.getTutPas(), authorities);
 		System.out.println(tutor.getTutNom() + " " + tutor.getTutPas());
 		return usuario;

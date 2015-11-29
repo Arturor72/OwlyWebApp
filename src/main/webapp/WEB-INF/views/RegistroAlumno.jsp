@@ -8,7 +8,7 @@
 	<title>Owly - Registro</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/bootstrap.min.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/main.css'/>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -111,5 +111,6 @@
 
 	<script src="<c:url value='/resources/js/jquery.js' />"></script>
     <script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+    <script src="<c:url value='/resources/js/alumno/alumno.js' />"></script>
 </body>
 </html>

@@ -40,9 +40,9 @@ public class OwlySecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.formLogin().loginPage("/login").loginProcessingUrl("/j_spring_security_check").successHandler(getHandler()).and()
 	    .logout().logoutSuccessUrl("/login?logout").and().authorizeRequests()
-		.antMatchers("/alumno/**").hasAnyRole("ALUMNO")
+		.antMatchers("/registro/**").permitAll()
+	    .antMatchers("/alumno/**").hasAnyRole("ALUMNO")
 		.antMatchers("/tutor/**").hasAnyRole("TUTOR")
-		.antMatchers("/registro").permitAll()
 		.anyRequest().permitAll();
 	}
 	
