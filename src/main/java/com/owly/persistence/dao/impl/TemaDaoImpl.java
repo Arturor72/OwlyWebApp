@@ -35,7 +35,7 @@ public class TemaDaoImpl implements TemaDao{
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly=true)
 	public List<Tema> getTemasByCursoId(Integer curId) {
-		String query="Select t from Tema t where t.curId=:curId";
+		String query="Select t from Tema t where t.curso.curId=:curId";
 		Query prepareQuery=em.createQuery(query);
 		prepareQuery.setParameter("curId", curId);
 		return prepareQuery.getResultList();

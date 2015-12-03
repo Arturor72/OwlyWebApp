@@ -3,7 +3,8 @@
  */
 var main = function(){
 	verifyUser();
-	
+	getTemas();
+	getTemasOnChange();
 }
 
 function verifyUser(){
@@ -42,16 +43,19 @@ function sendUsername(username, tokens, headers){
 	});
 }
 function getTemas(){
-	$("#cursosEjercicio").change(function(){
-		var idCurso=$("#cursosEjercicio").val();
-		var token = $("input[name='_csrf']").val();
-		var header = $("meta[name='_csrf_header']").attr("content");
-		console.log(idCurso);
-		console.log(token);
-		console.log(header);
-//		sendUsername(username,token, header)
-	});
+	var idCurso=$("#cursosEjercicio").val();
+	var token = $("input[name='_csrf']").val();
+	var header = $("meta[name='_csrf_header']").attr("content");
+	console.log(idCurso);
+	console.log(token);
+	console.log(header);
+	sendCursoId(idCurso,token, header)
 	
+}
+function getTemasOnChange(){
+	$("#cursosEjercicio").change(function(){
+		getTemas();
+	});
 }
 
 function sendCursoId(idCurso, tokens, headers){
@@ -68,14 +72,21 @@ function sendCursoId(idCurso, tokens, headers){
 	request.done(function(msg){
 		console.log(msg);
 		if(msg===""){
-//			$("#aluUsu").css("border-color","");
-			console.log(msg);
-			console.log(msg);
+			// Here manage when no exists temas
 		}else{
-//			$("#aluUsu").css("border-color","red");
+			var objs = JSON.parse(msg);
+			console.log(objs);
+			var addTemas="";
+			for (var i = 0; i < objs.length; i++) {
+				addTemas=addTemas+"<option value=\\" +objs[i].temId + "\\ >"+objs[i].temDes+" </option>";
+				console.log(objs[i].temId);
+			}
+		
+			$("#temasEjercicio").html(addTemas);
 		}
 		
 	});
+	
 }
 $("document").ready(main);
 

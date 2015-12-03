@@ -16,12 +16,16 @@ public class OwlyTemaService {
 	@Autowired
 	TemaDao temaDao;
 	
-	public List<Tema> getTemaByCurso(Integer cursoId){
+	public String getTemaByCurso(Integer cursoId) throws Exception{
+		String temasAsString="";
 		ObjectMapper mapper = new ObjectMapper();
+		
 		mapper.registerModule(new Hibernate4Module());
 		List<Tema> temas=temaDao.getTemasByCursoId(cursoId);
-		
-		return temas;
+		if(temas!=null && temas.size()>0){
+			temasAsString = mapper.writeValueAsString(temas);	
+		}
+		return temasAsString;
 	}
 
 }

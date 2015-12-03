@@ -53,8 +53,8 @@ public class RegisterController {
 		ObjectMapper mapper=new ObjectMapper();
 		JsonNode jnode=mapper.readTree(user);
 		String username=jnode.get("user").asText();
-		String exist=alumnoService.existUsername(username);
-		System.out.println("Response: "+exist);
-		return exist;
+		String alumnoExist=alumnoService.existUsername(username);
+		System.out.println("Response: "+alumnoExist);
+		return alumnoExist;
 	}
 }

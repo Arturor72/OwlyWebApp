@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,7 +19,7 @@ public class Curso {
 	private String curCod;
 	@Column(name="curDes")
 	private String curDes;
-	@OneToMany(mappedBy="curso")
+	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY)
 	private List<Tema> temas;
 		
 	public Integer getCurId() {

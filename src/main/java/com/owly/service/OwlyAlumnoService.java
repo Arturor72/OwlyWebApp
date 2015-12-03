@@ -48,11 +48,7 @@ public class OwlyAlumnoService {
 		if (!alumnos.isEmpty() && alumnos.size() > 0) {
 			Alumno alumno = alumnos.get(0);
 			System.out.println(alumno.getEspecialidad().getEspDen());
-			try {
-				exist = mapper.writeValueAsString(alumnos.get(0));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			exist = mapper.writeValueAsString(alumnos.get(0));
 		}
 		return exist;
 	}
